@@ -2,9 +2,9 @@
 
 You will need:
 
-- USB drive with at least 4GB
-- A way to plug it into your Mac (USB-C isn't USB-A)
-- A wired internet connection (i.e. USB-C to Enternet dongle) or wifi.
+-   USB drive with at least 4GB
+-   A way to plug it into your Mac (USB-C isn't USB-A)
+-   A wired internet connection (i.e. USB-C to Enternet dongle) or wifi.
 
 ---
 

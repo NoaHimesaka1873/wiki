@@ -4,10 +4,10 @@
 
 # Hardware Requirements
 
-* USB-C to Ethernet cable adapter.
-    * While you can install Manjaro over WiFi, it would be a lot easier to use an Adapter during the installation process.
-* USB-C to USB Adapter
-* USB drive
+-   USB-C to Ethernet cable adapter.
+    -   While you can install Manjaro over WiFi, it would be a lot easier to use an Adapter during the installation process.
+-   USB-C to USB Adapter
+-   USB drive
 
 # Install Procedure
 
@@ -31,9 +31,9 @@
 11. Delete the partition you created before - this is usually mounted to `/dev/nvme0n1p3`.
 12. These next steps involve partitioning the `/boot`(boot), `/`(Root) and `/home`(Home) partitions of your Linux filesystem. If you know what you're doing, feel free to skip to step 15.
 
-    * Create a `2000 MiB` partition with `ext4` as the file system. Change the mount point to `/boot` and click ok.
-    * Create a `51200 MiB` partition with `ext4` as the file system. Change the mount point to `/` and click ok.
-    * Use the remaining disk space to create an `ext4` file system. Change the mount point to `/home`.
+    - Create a `2000 MiB` partition with `ext4` as the file system. Change the mount point to `/boot` and click ok.
+    - Create a `51200 MiB` partition with `ext4` as the file system. Change the mount point to `/` and click ok.
+    - Use the remaining disk space to create an `ext4` file system. Change the mount point to `/home`.
 
 13. Continue the rest of the setup as normal. Once the setup process is complete, restart your computer. Make sure you remove the install medium once powered off.
 14. Once again, power on your computer whilst holding the Option (⌥) key. Then select EFI Boot.

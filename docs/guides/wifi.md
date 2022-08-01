@@ -8,10 +8,10 @@ Check if this command outputs any lines: `modinfo brcmfmac | grep 4387` If it do
 
 Refer to the "Updating Kernel" section on your distro's FAQ for instructions if you need to update your kernel:
 
-- [Arch](https://wiki.t2linux.org/distributions/arch/faq/#updating-kernel)
-- [Fedora](https://wiki.t2linux.org/distributions/fedora/faq/#updating-kernel)
-- [Manjaro](https://wiki.t2linux.org/distributions/manjaro/faq/#updating-kernel)
-- [Ubuntu](https://wiki.t2linux.org/distributions/ubuntu/faq/#updating-kernel)
+-   [Arch](https://wiki.t2linux.org/distributions/arch/faq/#updating-kernel)
+-   [Fedora](https://wiki.t2linux.org/distributions/fedora/faq/#updating-kernel)
+-   [Manjaro](https://wiki.t2linux.org/distributions/manjaro/faq/#updating-kernel)
+-   [Ubuntu](https://wiki.t2linux.org/distributions/ubuntu/faq/#updating-kernel)
 
 ## Setting up
 
@@ -29,16 +29,16 @@ We now use a script which can help you set up Wi-Fi. Follow the instructions bel
 
 You have two options here. You can follow either of the two, its purely based on your choice:
 
-- The first is to either copy this script to Linux via a USB, download it if you have a wired internet connection, or use some other method to get it to Linux. You can then run the script again from Linux and it will finish setting up Wi-Fi.
+-   The first is to either copy this script to Linux via a USB, download it if you have a wired internet connection, or use some other method to get it to Linux. You can then run the script again from Linux and it will finish setting up Wi-Fi.
 
-- The second method is to simply run the following commands on Linux :-
+-   The second method is to simply run the following commands on Linux :-
 
-  ```sh
-  sudo umount /dev/nvme0n1p1
-  sudo mkdir /tmp/apple-wifi-efi
-  sudo mount /dev/nvme0n1p1 /tmp/apple-wifi-efi
-  bash /tmp/apple-wifi-efi/wifi.sh
-  ```
+    ```sh
+    sudo umount /dev/nvme0n1p1
+    sudo mkdir /tmp/apple-wifi-efi
+    sudo mount /dev/nvme0n1p1 /tmp/apple-wifi-efi
+    bash /tmp/apple-wifi-efi/wifi.sh
+    ```
 
 #### For those who don’t know how to run a script
 
@@ -47,11 +47,11 @@ If you don’t know how to run a script, follow these instructions.
 1. Boot into macOS, and download the script. Make sure the script is there in your **Downloads** folder.
 
 2. Open the terminal and run :-
-  
-    ``` bash
+
+    ```bash
     bash ~/Downloads/wifi.sh
     ```
-  
+
 3. Then boot into Linux and place the same script in the **Downloads** folder over there or simply run the commands the script asked you to run in Linux when you executed it in macOS.
 
 4. If you placed the script in the **Downloads** folder instead of running the commands told by the script in macOS, run step 2 command on the terminal, this time in Linux. Else you needn't follow this step.

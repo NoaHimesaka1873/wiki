@@ -2,8 +2,8 @@
 
 You will need:
 
-- USB drive with at least 1GB
-- A way to plug it into your Mac (USB-C isn't USB-A)
+-   USB drive with at least 1GB
+-   A way to plug it into your Mac (USB-C isn't USB-A)
 
 ---
 
@@ -52,14 +52,14 @@ You will need:
 
 12. Install a bootloader, GRUB is easier, but you can also use systemd-boot. Don't do both.
 
-    -   Installing Grub:
+    - Installing Grub:
 
         1. Edit `/etc/default/grub`, you'll need to install a text editor (i.e. `vim` or `nano`) with `pacman -S PACKAGE_NAME` for this step.
         2. On the line with `GRUB_CMDLINE_LINUX="quiet splash"`, add the following kernel parameters: `intel_iommu=on iommu=pt pcie_ports=compat`
         3. Run `grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable`.
         4. `grub-mkconfig -o /boot/grub/grub.cfg`
 
-    -   Installing systemd-boot:
+    - Installing systemd-boot:
 
         1. Follow the Arch wiki's [instructions](https://wiki.archlinux.org/title/Systemd-boot#Installation). You will want `--path=/boot/efi` as an argument to `bootctl` if you mounted your EFI partition there. Also make sure you configure it to boot the `linux-t2` kernel.
         2. Install a text editor (i.e. `pacman -S vim` or `pacman -S nano`), and make the following edit for `.conf` files in `/boot/efi/loader/entries/`.

@@ -2,12 +2,12 @@
 
 ## Hardware Requirements
 
-* Gentoo Minimal Installation ISO
-    * Requirements for this ISO: USB keyboard, mouse, ethernet adapter/Wi-Fi adapter
-    * If you don't meet the requirements, then you are required to use another distro's ISO. A recommended distro to use is Ubuntu, more specifically, [mbp-ubuntu](https://wiki.t2linux.org/distributions/ubuntu/installation/#download-the-latest-safe-release).
-        * Make sure to follow [this guide](https://wiki.gentoo.org/wiki/Installation_alternatives#Installation_from_non-Gentoo_LiveCDs) along with this guide and the Gentoo Handbook starting at step 5
-* USB-C to USB-A adapter
-* USB Flash Drive
+-   Gentoo Minimal Installation ISO
+    -   Requirements for this ISO: USB keyboard, mouse, ethernet adapter/Wi-Fi adapter
+    -   If you don't meet the requirements, then you are required to use another distro's ISO. A recommended distro to use is Ubuntu, more specifically, [mbp-ubuntu](https://wiki.t2linux.org/distributions/ubuntu/installation/#download-the-latest-safe-release).
+        -   Make sure to follow [this guide](https://wiki.gentoo.org/wiki/Installation_alternatives#Installation_from_non-Gentoo_LiveCDs) along with this guide and the Gentoo Handbook starting at step 5
+-   USB-C to USB-A adapter
+-   USB Flash Drive
 
 ## Install Procedure
 
@@ -37,7 +37,7 @@
 
     1. In order to have the Linux Kernel support your device the most, you'll have to build from a modified Linux Kernel source tree.
     2. Git clone [the t2linux kernel source tree](https://github.com/t2linux/kernel) to `/usr/src`
-        * Make sure to git checkout the version you want. For example, if you want kernel version v5.16.17, you would checkout tag `t2-v5.16.17`.
+        - Make sure to git checkout the version you want. For example, if you want kernel version v5.16.17, you would checkout tag `t2-v5.16.17`.
     3. Run these commands to symlink the kernel to `/usr/src/linux`:
 
     ```bash
@@ -51,8 +51,8 @@
     ```bash
     git clone https://github.com/t2linux/apple-bce-drv /usr/src/apple-bce
     git clone https://github.com/t2linux/apple-ib-drv /usr/src/apple-ibridge
-    for i in apple-bce apple-ibridge; do 
-    mkdir /usr/src/linux/drivers/staging/$i 
+    for i in apple-bce apple-ibridge; do
+    mkdir /usr/src/linux/drivers/staging/$i
     cp -r /usr/src/$i/* /usr/src/linux/drivers/staging/$i/
     done
     ```

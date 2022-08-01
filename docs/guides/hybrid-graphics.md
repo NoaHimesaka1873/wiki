@@ -13,7 +13,7 @@ This has been tested on the MacBookPro16,1 and the MacBookPro15,1. The 15,3 and 
 # Enabling the iGPU
 
 !!! note
-    Aside from step 1, these instructions should be followed in Linux.
+Aside from step 1, these instructions should be followed in Linux.
 
 1.  Update macOS. Big Sur and above can boot when the iGPU is set as the boot GPU, but this has not been tested on Catalina, and [on older MacBooks](https://github.com/Dunedan/mbp-2016-linux/issues/6#issuecomment-286200226), setting the iGPU as the boot GPU has stopped macOS from booting properly with graphics, and it is unknown when this was fixed (you might want to turn ssh on in macOS if you are worried about this).
 
@@ -35,11 +35,11 @@ This has been tested on the MacBookPro16,1 and the MacBookPro15,1. The 15,3 and 
         ================== apple_set_os loader v0.5 ==================
         SetOsProtocol Handle Count: 1
         AppleSetOs will be loaded, press Z to disable.
-        
+
         ----------------------- Ready to boot ------------------------
         Plug in your eGPU then press any key.
         Booting bootx64_original.efi in 6 second(s)
-        
+
         Connected Graphics Cards:
         1002 7340 AMD - Navi 14 [Radeon RX 5500/5500M]
         8086 3E9B INTEL - UHD Graphics 630 (Mobile)
