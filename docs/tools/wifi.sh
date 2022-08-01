@@ -5,7 +5,7 @@
 set -euo pipefail
 
 os=$(uname -s);
-script_name=$(echo $0 | rev | cut -d'/' -f 1 | rev)
+script_name=$(echo "$0" | rev | cut -d'/' -f 1 | rev)
 case "$os" in
 	(Darwin)
 		echo "Detected macOS"
@@ -26,26 +26,26 @@ case "$os" in
 
 		if [[ ${1-default} = -v ]]
 		then
-		cp -v $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND.bin
-		cp -v $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND.clm_blob
-		cp -v $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND.txcap_blob
+		cp -v "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND".bin
+		cp -v "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND".clm_blob
+		cp -v "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND".txcap_blob
 		else
-		cp $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND.bin
-		cp $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND.clm_blob
-		cp $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND.txcap_blob
+		cp "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND".bin
+		cp "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND".clm_blob
+		cp "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND".txcap_blob
 		fi
 
-		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
-			for ((LINE=1;LINE<=$NVRAM_NUMBER;++LINE))
+		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
+			for ((LINE=1;LINE<="$NVRAM_NUMBER";++LINE))
 			do
-			NVRAM=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
-			VENDOR=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
-			VERSION=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
+			NVRAM=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
+			VENDOR=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
+			VERSION=$(ls /usr/share/firmware/wifi/c-4355__s-C1 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
 			if [[ ${1-default} = -v ]]
 			then
-			cp -v $NVRAM /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND-YSBC-$VENDOR-$VERSION.txt
+			cp -v "$NVRAM" /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND-YSBC-$VENDOR-$VERSION".txt
 			else
-			cp $NVRAM /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,$ISLAND-YSBC-$VENDOR-$VERSION.txt
+			cp "$NVRAM" /Volumes/EFI/firmware/brcmfmac4355c1-pcie.apple,"$ISLAND-YSBC-$VENDOR-$VERSION".txt
 			fi
 			done
 		done
@@ -57,26 +57,26 @@ case "$os" in
 
 		if [[ ${1-default} = -v ]]
 		then
-		cp -v $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND.bin
-		cp -v $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND.clm_blob
-		cp -v $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND.txcap_blob
+		cp -v "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND".bin
+		cp -v "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND".clm_blob
+		cp -v "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND".txcap_blob
 		else
-		cp $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND.bin
-		cp $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND.clm_blob
-		cp $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND.txcap_blob
+		cp "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND".bin
+		cp "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND".clm_blob
+		cp "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND".txcap_blob
 		fi
 
-		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
-			for ((LINE=1;LINE<=$NVRAM_NUMBER;++LINE))
+		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
+			for ((LINE=1;LINE<="$NVRAM_NUMBER";++LINE))
 			do
-			NVRAM=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
-			VENDOR=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
-			VERSION=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
+			NVRAM=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
+			VENDOR=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
+			VERSION=$(ls /usr/share/firmware/wifi/c-4364__s-B2 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
 			if [[ ${1-default} = -v ]]
 			then
-			cp -v $NVRAM /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND-HRPN-$VENDOR-$VERSION.txt
+			cp -v "$NVRAM" /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND-HRPN-$VENDOR-$VERSION".txt
 			else
-			cp $NVRAM /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,$ISLAND-HRPN-$VENDOR-$VERSION.txt
+			cp "$NVRAM" /Volumes/EFI/firmware/brcmfmac4364b2-pcie.apple,"$ISLAND-HRPN-$VENDOR-$VERSION".txt
 			fi
 			done
 		done
@@ -88,26 +88,26 @@ case "$os" in
 
 		if [[ ${1-default} = -v ]]
 		then
-		cp -v $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND.bin
-		cp -v $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND.clm_blob
-		cp -v $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND.txcap_blob
+		cp -v "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND".bin
+		cp -v "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND".clm_blob
+		cp -v "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND".txcap_blob
 		else
-		cp $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND.bin
-		cp $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND.clm_blob
-		cp $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND.txcap_blob
+		cp "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND".bin
+		cp "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND".clm_blob
+		cp "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND".txcap_blob
 		fi
 
-		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
-			for ((LINE=1;LINE<=$NVRAM_NUMBER;++LINE))
+		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
+			for ((LINE=1;LINE<="$NVRAM_NUMBER";++LINE))
 			do
-			NVRAM=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
-			VENDOR=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
-			VERSION=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
+			NVRAM=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
+			VENDOR=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
+			VERSION=$(ls /usr/share/firmware/wifi/c-4364__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
 			if [[ ${1-default} = -v ]]
 			then
-			cp -v $NVRAM /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND-HRPN-$VENDOR-$VERSION.txt
+			cp -v "$NVRAM" /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND-HRPN-$VENDOR-$VERSION".txt
 			else
-			cp $NVRAM /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,$ISLAND-HRPN-$VENDOR-$VERSION.txt
+			cp "$NVRAM" /Volumes/EFI/firmware/brcmfmac4364b3-pcie.apple,"$ISLAND-HRPN-$VENDOR-$VERSION".txt
 			fi
 			done
 
@@ -120,26 +120,26 @@ case "$os" in
 
 		if [[ ${1-default} = -v ]]
 		then
-		cp -v $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND.bin
-		cp -v $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND.clm_blob
-		cp -v $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND.txcap_blob
+		cp -v "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND".bin
+		cp -v "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND".clm_blob
+		cp -v "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND".txcap_blob
 		else
-		cp $ISLAND.trx /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND.bin
-		cp $ISLAND.clmb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND.clm_blob
-		cp $ISLAND.txcb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND.txcap_blob
+		cp "$ISLAND".trx /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND".bin
+		cp "$ISLAND".clmb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND".clm_blob
+		cp "$ISLAND".txcb /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND".txcap_blob
 		fi
 
-		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
-			for ((LINE=1;LINE<=$NVRAM_NUMBER;++LINE))
+		NVRAM_NUMBER=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | wc -l | xargs)
+			for ((LINE=1;LINE<="$NVRAM_NUMBER";++LINE))
 			do
-			NVRAM=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
-			VENDOR=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
-			VERSION=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep $ISLAND | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
+			NVRAM=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE")
+			VENDOR=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 2)
+			VERSION=$(ls /usr/share/firmware/wifi/c-4377__s-B3 | grep "$ISLAND" | grep txt | grep -v -E 'ID|X0|X2|X3' | awk "NR==$LINE" | cut -d "V" -f 2 | cut -c 7-9)
 			if [[ ${1-default} = -v ]]
 			then
-			cp -v $NVRAM /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND-SPPR-$VENDOR-$VERSION.txt
+			cp -v "$NVRAM" /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND-SPPR-$VENDOR-$VERSION".txt
 			else
-			cp $NVRAM /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,$ISLAND-SPPR-$VENDOR-$VERSION.txt
+			cp "$NVRAM" /Volumes/EFI/firmware/brcmfmac4377b3-pcie.apple,"$ISLAND-SPPR-$VENDOR-$VERSION".txt
 			fi
 			done
 		done
@@ -166,9 +166,9 @@ case "$os" in
 		echo "Getting WiFi firmware"
 		if [[ ${1-default} = -v ]]
 		then
-			sudo cp -v $mountpoint/firmware/* /lib/firmware/brcm
+			sudo cp -v "$mountpoint"/firmware/* /lib/firmware/brcm
 		else
-			sudo cp $mountpoint/firmware/* /lib/firmware/brcm
+			sudo cp "$mountpoint"/firmware/* /lib/firmware/brcm
 		fi
 		sudo modprobe -r brcmfmac
 		sudo modprobe brcmfmac
@@ -178,7 +178,7 @@ case "$os" in
 		if [[ ($input != y) && ($input != Y) ]]
 		then
 			echo "Removing the copy from the EFI partition"
-			sudo rm -r $mountpoint/firmware $mountpoint/wifi.sh
+			sudo rm -r "$mountpoint"/firmware "$mountpoint"/wifi.sh
 		fi
 		echo "Running post-installation scripts"
 		exec sudo sh -c "umount /dev/nvme0n1p1 && mount -a && rmdir /tmp/apple-wifi-efi && echo Done!"
