@@ -3,15 +3,15 @@
 
 set -euo pipefail
 
-if [[ `uname -s` != "Linux" ]] ; then
-    echo "This script is intended to be run from Linux. Aborting!"
-    exit 1
+if [[ $(uname -s) != "Linux" ]]; then
+  echo "This script is intended to be run from Linux. Aborting!"
+  exit 1
 fi
 
 echo "Setting up the Touch Bar"
 echo -e "# display f* key in touchbar\noptions apple-ib-tb fnmode=1" | sudo tee /etc/modprobe.d/apple-tb.conf >/dev/null
 
-cat << EOF | sudo tee /usr/local/bin/touchbar >/dev/null
+cat <<EOF | sudo tee /usr/local/bin/touchbar >/dev/null
 #!/usr/bin/env bash
 
 set -euo pipefail
